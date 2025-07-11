@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: dotnet-basic-knlqomgd
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: dotnet-basic-knlqomgd 
+  name: dotnet-basic-knlqomgd
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: dotnet-basic-knlqomgd
+    weight: 100 
